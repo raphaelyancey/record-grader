@@ -74,5 +74,8 @@ body {
       float: right; }
   #container #header {
     margin: 5rem 0 5rem 0; }
+  #container #footer {
+    text-align: left;
+    margin-bottom: 15px; }
 
 /*# sourceMappingURL=style.css.map */
