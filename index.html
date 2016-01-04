@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Music Record Grader</title>
+	<link rel="stylesheet" href="bower_components/normalize-css/normalize.css" type="text/css">
+	<link rel="stylesheet" href="style.css" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600" rel="stylesheet" type="text/css">
+</head>
+<body ng-app="recordGrader" ng-controller="MainController">
+
+	<div id="container">
+
+		<div id="header">
+			<h1>VINYL RECORD GRADER</h1>
+
+			<p>This tool will help you grade vinyl records according to <a href="http://www.discogs.com/help/doc/mp-grading">Discogs</a> and <a href="http://www.goldminemag.com/collector-resources/record-grading-101/2">Goldmine</a> guidelines.</p>
+		</div>
+
+		<div id="questions">
+
+			<section id="top">
+				<h3>Is the record still sealed?</h3>
+
+				<span class="option"
+					 ng-click="record.sealed = false"
+					 ng-class="{ 'selected' : record.sealed === false }">
+					Nope
+				</span>
+				<span class="option"
+					 ng-click="record.sealed = true"
+					 ng-class="{ 'selected' : record.sealed }">
+					Yes
+				</span>
+			</section>
+
+			<section id="result" ng-show="record.disc.grade && record.cover.grade">
+				<p>According to your answers, the disc grade is <strong>{{ record.disc.grade }}</strong> and its cover grade is <strong>{{ record.cover.grade }}</strong>.</p>
+				<p ng-show="record.disc.grade == record.cover.grade">The record is obviously <strong>{{ record.disc.grade }}</strong> then.</p>
+			</section>
+
+			<div class="clearfix"></div>
+
+			<div class="cover-and-disc">
+				<section id="cover">
+					<h2>COVER <span class="grade" ng-show="record.cover.grade">{{ record.cover.grade }}</span></h2>
+
+					<section ng-hide="record.type == 'cd'">
+						<h3>Ring wear</h3>
+
+						<span class="option"
+							 ng-click="record.cover.ringWorn = 0"
+							 ng-class="{ 'selected' : record.cover.ringWorn == 0 }">
+							None
+						</span>
+						<span class="option"
+							 ng-click="record.cover.ringWorn = 1"
+							 ng-class="{ 'selected' : record.cover.ringWorn == 1 }">
+							Slightly visible
+						</span>
+						<span class="option"
+							 ng-click="record.cover.ringWorn = 2"
+							 ng-class="{ 'selected' : record.cover.ringWorn == 2 }">
+							Fairly visible
+						</span>
+					</section>
+
+					<section>
+						<h3>Handling wear (scratches, creases, folds, seam splits)</h3>
+
+						<span class="option"
+							 ng-click="record.cover.worn = 0"
+							 ng-class="{ 'selected' : record.cover.worn == 0 }">
+							None
+						</span>
+						<span class="option"
+							 ng-click="record.cover.worn = 1"
+							 ng-class="{ 'selected' : record.cover.worn == 1 }">
+							Slightly visible
+						</span>
+						<span class="option"
+							 ng-click="record.cover.worn = 2"
+							 ng-class="{ 'selected' : record.cover.worn == 2 }">
+							Fairly visible
+						</span>
+					</section>
+
+					<section>
+						<h3>Wanton violence (holes, writings, tape, stickers)</h3>
+
+						<span class="option"
+							 ng-click="record.cover.violenced = 0"
+							 ng-class="{ 'selected' : record.cover.violenced == 0 }">
+							None
+						</span>
+						<span class="option"
+							 ng-click="record.cover.violenced = 1"
+							 ng-class="{ 'selected' : record.cover.violenced == 1 }">
+							Very little
+						</span>
+						<span class="option"
+							 ng-click="record.cover.violenced = 2"
+							 ng-class="{ 'selected' : record.cover.violenced == 2 }">
+							A few
+						</span>
+					</section>
+				</section>
+
+				<section id="disc">
+					<h2>DISC <span class="grade" ng-show="record.disc.grade">{{ record.disc.grade }}</span></h2>
+
+					<section>
+						<h3>Has it ever been played?</h3>
+
+						<span class="option"
+							 ng-click="record.disc.played = 0"
+							 ng-class="{ 'selected' : record.disc.played == 0 || record.sealed }">
+							Nope
+						</span>
+						<span class="option"
+							 ng-click="record.disc.played = 2"
+							 ng-class="{ 'selected' : record.disc.played == 2 }">
+							Yes
+						</span>
+					</section>
+
+					<section>
+						<h3>Does it skip when playing?</h3>
+
+						<span class="option"
+							 ng-click="record.disc.skipping = false"
+							 ng-class="{ 'selected' : record.disc.skipping == 0 || record.disc.played == 0}">
+							Nope
+						</span>
+						<span class="option"
+							 ng-click="record.disc.skipping = 2"
+							 ng-class="{ 'selected' : record.disc.skipping == 2 }">
+							Yes
+						</span>
+					</section>
+
+					<section>
+						<h3>Is the surface warped?</h3>
+
+						<span class="option"
+							 ng-click="record.disc.warped = 0"
+							 ng-class="{ 'selected' : record.disc.warped == 0 }">
+							Nope
+						</span>
+						<span class="option"
+							 ng-click="record.disc.warped = 1"
+							 ng-class="{ 'selected' : record.disc.warped == 1 }">
+							Very little (does not affect the sound)
+						</span>
+						<span class="option"
+							 ng-click="record.disc.warped = 2"
+							 ng-class="{ 'selected' : record.disc.warped == 2 }">
+							Fairly
+						</span>
+					</section>
+
+					<section>
+						<h3>Is the sound noisy when playing?</h3>
+
+						<span class="option"
+							 ng-click="record.disc.noisy = 0"
+							 ng-class="{ 'selected' : record.disc.noisy == 0 || record.disc.played == 0  }">
+							Nope
+						</span>
+						<span class="option"
+							 ng-click="record.disc.noisy = 1"
+							 ng-class="{ 'selected' : record.disc.noisy == 1 }">
+							Very little
+						</span>
+						<span class="option"
+							 ng-click="record.disc.noisy = 2"
+							 ng-class="{ 'selected' : record.disc.noisy == 2 }">
+							Fairly
+						</span>
+					</section>
+
+					<section>
+						<h3>Are there scratches on the surface?</h3>
+
+						<span class="option"
+							 ng-click="record.disc.scratched = 0"
+							 ng-class="{ 'selected' : record.disc.scratched == 0 }">
+							Nope
+						</span>
+						<span class="option"
+							 ng-click="record.disc.scratched = 1"
+							 ng-class="{ 'selected' : record.disc.scratched == 1 }">
+							Very little
+						</span>
+						<span class="option"
+							 ng-click="record.disc.scratched = 2"
+							 ng-class="{ 'selected' : record.disc.scratched == 2 }">
+							A few
+						</span>
+					</section>
+				</section>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<script type="text/javascript" src="bower_components/angular/angular.js"></script>
+	<script type="text/javascript" src="bower_components/underscore/underscore.js"></script>
+	<script type="text/javascript" src="app.js"></script>
+</body>
+</html>
