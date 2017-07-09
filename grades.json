@@ -1,0 +1,182 @@
+[
+  {
+    "label": "Is the record unsealed?",
+    "prop": "r_unsealed",
+    "answerType": "bool",
+    "rules": {
+      "0": "M",
+      "1": "NM"
+    }
+  },
+
+  {
+    "label": "Has the record ever been played?",
+    "prop": "r_played",
+    "answerType": "bool",
+    "rules": {
+      "0": "M",
+      "1": "NM"
+    }
+  },
+
+  {
+    "label": "Is the record skipping while playing?",
+    "prop": "r_skipping",
+    "answerType": "bool",
+    "rules": {
+      "0": "M",
+      "1": "P"
+    }
+  },
+
+  {
+    "label": "Is the record warped?",
+    "prop": "r_visible_warp",
+    "answerType": "scale",
+    "rules": {
+      "0": "M",
+      "1": "VG+",
+      "2": "P"
+    }
+  },
+
+  {
+    "label": "Do you hear record warps?",
+    "prop": "r_audible_warp",
+    "answerType": "scale",
+    "rules": {
+      "0": "M",
+      "1": "VG",
+      "2": "P"
+    }
+  },
+
+  {
+    "label": "Do you see scratches on the surface?",
+    "prop": "r_visible_scratch",
+    "answerType": "scale",
+    "rules": {
+      "0": "M",
+      "1": "VG+",
+      "2": "G"
+    }
+  },
+
+  {
+    "label": "Do you hear scratches when playing?",
+    "prop": "r_audible_scratch",
+    "answerType": "scale",
+    "rules": {
+      "0": "M",
+      "1": "VG",
+      "2": "P"
+    }
+  },
+
+  {
+    "label": "Do you hear noise when playing?",
+    "prop": "r_noisy",
+    "answerType": "scale",
+    "rules": {
+      "0": "M",
+      "1": "VG",
+      "2": "G"
+    }
+  },
+
+  {
+    "label": "Is the label uncentered?",
+    "prop": "r_misplaced_label",
+    "answerType": "bool",
+    "rules": {
+      "0": "M",
+      "1": "VG+"
+    }
+  },
+
+  {
+    "label": "Is the center hole worn out?",
+    "prop": "r_worn_center_hole",
+    "answerType": "bool",
+    "rules": {
+      "0": "M",
+      "1": "VG+"
+    }
+  },
+
+  {
+    "label": "Is the label worn out?",
+    "prop": "r_worn_label",
+    "answerType": "scale",
+    "rules": {
+      "0": "M",
+      "1": "VG+",
+      "2": "G"
+    }
+  },
+
+  {
+    "label": "Is the sleeve cut-out?",
+    "prop": "s_cut_out",
+    "answerType": "bool",
+    "rules": {
+      "0": "M",
+      "1": "VG+"
+    }
+  },
+
+  {
+    "label": "Is there any writing, sticker or similar?",
+    "prop": "s_external_addition",
+    "answerType": "scale",
+    "rules": {
+      "0": "M",
+      "1": "VG",
+      "2": "G"
+    }
+  },
+
+  {
+    "label": "Has the sleeve got a ring wear?",
+    "prop": "s_ring_wear",
+    "answerType": "scale",
+    "rules": {
+      "0": "M",
+      "1": "VG",
+      "2": "G"
+    }
+  },
+
+  {
+    "label": "Are the sleeve seams split?",
+    "prop": "s_seam_split",
+    "answerType": "scale",
+    "rules": {
+      "0": "M",
+      "1": "VG+",
+      "2": "VG"
+    }
+  },
+
+  {
+    "label": "Are the sleeve corners worn?",
+    "prop": "s_worn_corner",
+    "answerType": "scale",
+    "rules": {
+      "0": "M",
+      "1": "VG+",
+      "2": "G"
+    }
+  },
+
+  {
+    "label": "Has the sleeve got creases?",
+    "prop": "s_crease",
+    "answerType": "scale",
+    "rules": {
+      "0": "M",
+      "1": "VG",
+      "2": "P"
+    }
+  }
+]
