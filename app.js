@@ -3,6 +3,11 @@ var app = angular.module('recordGrader', []);
 app.controller('MainController', ['$scope', '$http', function($scope, $http) {
 
 	$scope.answers = {};
+	$scope.criterions = [];
+	$scope.result = {
+		record: null,
+		sleeve: null
+	};
 
 	var orderedGrades = ['P', 'G', 'VG', 'VG+', 'NM', 'M'];
 
@@ -12,31 +17,34 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http) {
 		throw new Error("Couldn't get the grades.");
 	});
 
-	function computeGrade(answers, criterions, orderedGrades, callback) {
-		
+	function computeGrade(answers, criterions, orderedGrades, callback) {		
 		var gradePosition = Object.keys(answers).reduce(function(prev, key) {	
-			console.group();
-			console.log('— key', key);
 			var criterion = _.findWhere(criterions, { prop: key });
-			console.log('— criterion', criterion);
 			var gradeAnswer = criterion.rules[answers[key]];
-			console.log('— gradeAnswer', gradeAnswer);
 			var gradeAnswerPos = orderedGrades.indexOf(gradeAnswer);
-			console.log('— gradeAnswerPos', gradeAnswerPos);
 			if(gradeAnswerPos < prev) return gradeAnswerPos;
 			else return prev;
-			console.groupEnd();
 		}, (orderedGrades.length - 1));
-
-		console.log('— gradePosition', gradePosition);
-
 		callback(orderedGrades[gradePosition]);
 	}
 
-	$scope.$watchCollection('answers', function(n) {
-		console.log('— n', n);
-		computeGrade(n, $scope.criterions, orderedGrades, function(res) {
-			$scope.result = res;
+	$scope.$watchCollection('answers.record', function(n) {
+		if(!n) return;
+		var r_criterions = _.filter($scope.criterions, function(criterion) {
+			return criterion.item == 'record';
+		});
+		computeGrade(n, r_criterions, orderedGrades, function(res) {
+			$scope.result.record = res;
+		});
+	});
+
+	$scope.$watchCollection('answers.sleeve', function(n) {
+		if(!n) return;
+		var s_criterions = _.filter($scope.criterions, function(criterion) {
+			return criterion.item == 'sleeve';
+		});
+		computeGrade(n, s_criterions, orderedGrades, function(res) {
+			$scope.result.sleeve = res;
 		});
 	});
 

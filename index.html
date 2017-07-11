@@ -1,53 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Music Record Grader</title>
-	<link rel="stylesheet" href="bower_components/normalize-css/normalize.css" type="text/css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 	<link rel="stylesheet" href="style.css" type="text/css">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600" rel="stylesheet" type="text/css">
 </head>
 <body ng-app="recordGrader" ng-controller="MainController">
 
-	<div id="container">
+	<div class="container">
 
-		<div id="header">
-			<h1>VINYL RECORD GRADER</h1>
-
-			<p>This tool will help you grade vinyl records according to the <a href="http://www.goldminemag.com/collector-resources/record-grading-101/2">Goldmine</a> guidelines.</p>
+		<div class="row">
+			<div class="col-sm-12 mt-4">
+				<h2><strong>Vinyl record &amp; sleeve grader</strong></h2>
+				<p>This tool will help you grade vinyl records according to the <a href="http://www.goldminemag.com/collector-resources/record-grading-101/2">Goldmine</a> guidelines.</p>
+			</div>
 		</div>
 
-		<div>
-			<h3>Your record seems to be: {{ result || '—' }}</h3>
+		<div class="row mt-4">
+			<div class="col-md-6 col-sm-12">
+				
+				<h4>Record <span class="badge badge-primary">{{ result.record }}</span></h4>
+				<hr>
+				<section ng-repeat="criterion in criterions | filter: { item: 'record' }" class="criterion">
+					<strong>{{ criterion.label }}</strong>
+					<div ng-if="criterion.answerType == 'bool'">
+						<label class="criterion_choice"><input type="radio" value="0" ng-model="answers['record'][criterion.prop]"> No</label>
+						<label class="criterion_choice"><input type="radio" value="1" ng-model="answers['record'][criterion.prop]"> Yes</label>
+					</div>
+					<div ng-if="criterion.answerType == 'scale'">
+						<label class="criterion_choice"><input type="radio" value="0" ng-model="answers['record'][criterion.prop]"> None</label>
+						<label class="criterion_choice"><input type="radio" value="1" ng-model="answers['record'][criterion.prop]"> A little</label>
+						<label class="criterion_choice"><input type="radio" value="2" ng-model="answers['record'][criterion.prop]"> More than a little</label>
+					</div>
+				</section>
+
+			</div>
+			<div class="mt-2 hidden-sm-up">&nbsp;</div>
+			<div class="col-md-6 col-sm-12">
+
+				<h4>Sleeve <span class="badge badge-primary">{{ result.sleeve }}</span></h4>
+				<hr>
+				<section ng-repeat="criterion in criterions | filter: { item: 'sleeve' }" class="criterion">
+					<strong>{{ criterion.label }}</strong>
+					<div ng-if="criterion.answerType == 'bool'">
+						<label class="criterion_choice"><input type="radio" value="0" ng-model="answers['sleeve'][criterion.prop]"> No</label>
+						<label class="criterion_choice"><input type="radio" value="1" ng-model="answers['sleeve'][criterion.prop]"> Yes</label>
+					</div>
+					<div ng-if="criterion.answerType == 'scale'">
+						<label class="criterion_choice"><input type="radio" value="0" ng-model="answers['sleeve'][criterion.prop]"> None</label>
+						<label class="criterion_choice"><input type="radio" value="1" ng-model="answers['sleeve'][criterion.prop]"> A little</label>
+						<label class="criterion_choice"><input type="radio" value="2" ng-model="answers['sleeve'][criterion.prop]"> More than a little</label>
+					</div>
+				</section>
+				
+			</div>
 		</div>
 
-		<div id="questions">
+		<p class="text-muted mt-4">
+			<b>How is the grade computed?</b> The initial grade is M, and each answer will lower (or at best keep) it. For example, if the record is perfect but you hear a background noise when playing, according to the guidelines it can't be higher than VG.
+		</p>
 
-			<section ng-repeat="criterion in criterions">
-				<h4>{{ criterion.label }}</h4>
-				<div ng-if="criterion.answerType == 'bool'">
-					<label><input type="radio" value="0" ng-model="answers[criterion.prop]"> No</label>
-					<label><input type="radio" value="1" ng-model="answers[criterion.prop]"> Yes</label>
-				</div>
-				<div ng-if="criterion.answerType == 'scale'">
-					<label><input type="radio" value="0" ng-model="answers[criterion.prop]"> None</label>
-					<label><input type="radio" value="1" ng-model="answers[criterion.prop]"> A little</label>
-					<label><input type="radio" value="2" ng-model="answers[criterion.prop]"> More than a little</label>
-				</div>
-			</section>
+		<p class="text-muted mt-4">
+			You might get weird grades while messing with the answers. It doesn't count if you say that the record is badly warped <u>and</u> that it isn't audible ☝️
+		</p>
 
-			<pre>{{ answers | json }}</pre>
+		<div ng-if="ui.comments">
+			<div id="disqus_thread"></div>
+			<script>
 
+			/**
+			*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+			*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+			/*
+			var disqus_config = function () {
+			this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+			this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+			};
+			*/
+			(function() { // DON'T EDIT BELOW THIS LINE
+			var d = document, s = d.createElement('script');
+			s.src = 'https://raphaelyancey-experiments.disqus.com/embed.js';
+			s.setAttribute('data-timestamp', +new Date());
+			(d.head || d.body).appendChild(s);
+			})();
+			</script>
+			<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+			<script id="dsq-count-scr" src="//raphaelyancey-experiments.disqus.com/count.js" async></script>
 		</div>
 
-		<div id="footer">
-			Made by <a href="https://twitter.com/raphaelyancey">Raphael Yancey</a> — 2017
+		<div class="mt-4 mb-4 text-muted">
+			<small>Made by <a href="https://raphaelyancey.fr">Raphael Yancey</a> — 2017</small>
 		</div>
-
 	</div>
 
-	<script type="text/javascript" src="bower_components/angular/angular.js"></script>
-	<script type="text/javascript" src="bower_components/underscore/underscore.js"></script>
+	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
 	<script type="text/javascript" src="app.js"></script>
+	<script id="dsq-count-scr" src="//raphaelyancey-experiments.disqus.com/count.js" async></script>
 </body>
 </html>

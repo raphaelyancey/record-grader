@@ -9,117 +9,22 @@ body {
 	font-size: 15px;
 	background: white;
 	color: $color-4;
-	text-align: center;
+	//text-align: center;
 }
 
-.clearfix {
-	content: "\0020";
-    display: block; 
-    height: 0; 
-    clear: both; 
-    visibility: hidden;
-    overflow: hidden;
-}
+.criterion {
+	margin-bottom: 10px;
 
-#container {
-	max-width: 960px;
-	margin: auto;
+	.criterion_choice {
 
-	#questions {
+		margin-right: 10px;
 
-		text-align: left;
-
-		section {
-			margin-bottom: 2rem;
-
-			//section { padding-left: 1rem; }
+		input {
+			margin-right: 3px;
 		}
 
-		span.option {
-
-			&:hover {
-				cursor: pointer;
-			}
-
-			display: inline-block;
-			font-weight: lighter;
-			background: $color-1;
-			color: darken($color-1, 50%);
-			padding: 0.5rem;
-			margin-right: 0.5rem;
-			border-radius: 2px;
-			//box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.32);
+		&:last-child {
+			margin-right: 0;
 		}
-
-		span.selected {
-			background: $color-5;
-			color: $color-3;
-			font-weight: normal;
-		}
-
-		#top {
-			width: 100%;
-			float: left;
-			width: 480px;
-		}
-
-		#result {
-			float: right;
-			width: 480px;
-			font-size: 20px;
-			background: #AB801A none repeat scroll 0% 0%;
-			padding: 0px 15px;
-			border-radius: 2px;
-			color: white;
-			box-sizing: border-box;
-
-			h2 {
-				background: $color-4;
-				font-weight: bold;
-			}
-		}
-
-		#cover {
-			float: left;
-			width: 475px;
-			margin-right: 5px;
-		}
-
-		#disc {
-			float: left;
-			width: 475px;
-			margin-left: 5px;
-		}
-
-		h3 {
-			//text-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.8);
-		}
-
-		h2 {
-			background: $color-4;
-			padding: 0.5rem 0.5rem 0.5rem 1rem;
-			margin-top: none;
-			border-radius: 1px;
-			color: white;
-			font-weight: normal;
-		}
-
-		.grade {
-			padding: 0 0.7rem;
-			font-weight: bold;
-			background: $color-3;
-			color: $color-4;
-			border-radius: 4px;
-			float: right;
-		}
-	}
-
-	#header {
-		margin: 5rem 0 5rem 0;
-	}
-
-	#footer {
-		text-align: left;
-		margin-bottom: 15px;
 	}
 }

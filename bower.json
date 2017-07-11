@@ -1,8 +1,0 @@
-{
-  "name": "record-grader",
-  "dependencies": {
-    "angular": "~1.4",
-    "normalize-css": "normalize.css#~3.0.3",
-    "underscore": "~1.8.3"
-  }
-}
