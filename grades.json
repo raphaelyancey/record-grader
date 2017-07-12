@@ -1,199 +1,363 @@
 [
   {
+    "answerType": "bool",
+    "item": [
+      "record",
+      "visual"
+    ],
     "label": "Is the record unsealed?",
-    "item": ["record", "visual"],
     "prop": "r_unsealed",
-    "answerType": "bool",
-    "rules": {
-      "0": "M",
-      "1": "NM"
-    }
+    "rules": [
+      {
+        "answer_value": "0",
+        "maxGrade": "M"
+      },
+      {
+        "answer_value": "1",
+        "maxGrade": "NM"
+      }
+    ]
   },
-
   {
+    "answerType": "bool",
+    "item": [
+      "record",
+      "playback"
+    ],
     "label": "Has the record ever been played?",
-    "item": ["record", "playback"],
     "prop": "r_played",
-    "answerType": "bool",
-    "rules": {
-      "0": "M",
-      "1": "NM"
-    }
+    "rules": [
+      {
+        "answer_value": "0",
+        "maxGrade": "M"
+      },
+      {
+        "answer_value": "1",
+        "maxGrade": "NM"
+      }
+    ]
   },
-
   {
+    "answerType": "bool",
+    "item": [
+      "record",
+      "playback"
+    ],
     "label": "Is the record skipping while playing?",
-    "item": ["record", "playback"],
     "prop": "r_skipping",
-    "answerType": "bool",
-    "rules": {
-      "0": "M",
-      "1": "P"
-    }
+    "rules": [
+      {
+        "answer_value": "0",
+        "maxGrade": "M"
+      },
+      {
+        "answer_value": "1",
+        "maxGrade": "P"
+      }
+    ]
   },
-
   {
+    "answerType": "scale",
+    "item": [
+      "record",
+      "visual"
+    ],
     "label": "Is the record warped?",
-    "item": ["record", "visual"],
     "prop": "r_visible_warp",
-    "answerType": "scale",
-    "rules": {
-      "0": "M",
-      "1": "VG+",
-      "2": "P"
-    }
+    "rules": [
+      {
+        "answer_value": "0",
+        "maxGrade": "M"
+      },
+      {
+        "answer_value": "1",
+        "maxGrade": "VG+"
+      },
+      {
+        "answer_value": "2",
+        "maxGrade": "P"
+      }
+    ]
   },
-
   {
+    "answerType": "scale",
+    "item": [
+      "record",
+      "playback"
+    ],
     "label": "Do you hear record warps?",
-    "item": ["record", "playback"],
     "prop": "r_audible_warp",
-    "answerType": "scale",
-    "rules": {
-      "0": "M",
-      "1": "VG",
-      "2": "P"
-    }
+    "rules": [
+      {
+        "answer_value": "0",
+        "maxGrade": "M"
+      },
+      {
+        "answer_value": "1",
+        "maxGrade": "VG"
+      },
+      {
+        "answer_value": "2",
+        "maxGrade": "P"
+      }
+    ]
   },
-
   {
+    "answerType": "scale",
+    "item": [
+      "record",
+      "visual"
+    ],
     "label": "Do you see scratches on the surface?",
-    "item": ["record", "visual"],
     "prop": "r_visible_scratch",
-    "answerType": "scale",
-    "rules": {
-      "0": "M",
-      "1": "VG+",
-      "2": "G"
-    }
+    "rules": [
+      {
+        "answer_value": "0",
+        "maxGrade": "M"
+      },
+      {
+        "answer_value": "1",
+        "maxGrade": "VG+"
+      },
+      {
+        "answer_value": "2",
+        "maxGrade": "G"
+      }
+    ]
   },
-
   {
+    "answerType": "scale",
+    "item": [
+      "record",
+      "playback"
+    ],
     "label": "Do you hear scratches when playing?",
-    "item": ["record", "playback"],
     "prop": "r_audible_scratch",
-    "answerType": "scale",
-    "rules": {
-      "0": "M",
-      "1": "VG",
-      "2": "P"
-    }
+    "rules": [
+      {
+        "answer_value": "0",
+        "maxGrade": "M"
+      },
+      {
+        "answer_value": "1",
+        "maxGrade": "VG"
+      },
+      {
+        "answer_value": "2",
+        "maxGrade": "P"
+      }
+    ]
   },
-
   {
+    "answerType": "scale",
+    "item": [
+      "record",
+      "playback"
+    ],
     "label": "Do you hear noise when playing?",
-    "item": ["record", "playback"],
     "prop": "r_noisy",
-    "answerType": "scale",
-    "rules": {
-      "0": "M",
-      "1": "VG",
-      "2": "G"
-    }
+    "rules": [
+      {
+        "answer_value": "0",
+        "maxGrade": "M"
+      },
+      {
+        "answer_value": "1",
+        "maxGrade": "VG"
+      },
+      {
+        "answer_value": "2",
+        "maxGrade": "G"
+      }
+    ]
   },
-
   {
+    "answerType": "bool",
+    "item": [
+      "record",
+      "visual"
+    ],
     "label": "Is the label uncentered?",
-    "item": ["record", "visual"],
     "prop": "r_misplaced_label",
-    "answerType": "bool",
-    "rules": {
-      "0": "M",
-      "1": "VG+"
-    }
+    "rules": [
+      {
+        "answer_value": "0",
+        "maxGrade": "M"
+      },
+      {
+        "answer_value": "1",
+        "maxGrade": "VG+"
+      }
+    ]
   },
-
   {
+    "answerType": "bool",
+    "item": [
+      "record",
+      "visual"
+    ],
     "label": "Is the center hole worn out?",
-    "item": ["record", "visual"],
     "prop": "r_worn_center_hole",
-    "answerType": "bool",
-    "rules": {
-      "0": "M",
-      "1": "VG+"
-    }
+    "rules": [
+      {
+        "answer_value": "0",
+        "maxGrade": "M"
+      },
+      {
+        "answer_value": "1",
+        "maxGrade": "VG+"
+      }
+    ]
   },
-
   {
+    "answerType": "scale",
+    "item": [
+      "record",
+      "visual"
+    ],
     "label": "Is the label worn out?",
-    "item": ["record", "visual"],
     "prop": "r_worn_label",
-    "answerType": "scale",
-    "rules": {
-      "0": "M",
-      "1": "VG+",
-      "2": "G"
-    }
+    "rules": [
+      {
+        "answer_value": "0",
+        "maxGrade": "M"
+      },
+      {
+        "answer_value": "1",
+        "maxGrade": "VG+"
+      },
+      {
+        "answer_value": "2",
+        "maxGrade": "G"
+      }
+    ]
   },
-
   {
-    "label": "Is the sleeve cut-out?",
-    "item": ["sleeve"],
-    "prop": "s_cut_out",
     "answerType": "bool",
-    "rules": {
-      "0": "M",
-      "1": "VG+"
-    }
+    "item": [
+      "sleeve"
+    ],
+    "label": "Is the sleeve cut-out?",
+    "prop": "s_cut_out",
+    "rules": [
+      {
+        "answer_value": "0",
+        "maxGrade": "M"
+      },
+      {
+        "answer_value": "1",
+        "maxGrade": "VG+"
+      }
+    ]
   },
-
   {
+    "answerType": "scale",
+    "item": [
+      "sleeve"
+    ],
     "label": "Is there any writing, sticker or similar?",
-    "item": ["sleeve"],
     "prop": "s_external_addition",
-    "answerType": "scale",
-    "rules": {
-      "0": "M",
-      "1": "VG",
-      "2": "G"
-    }
+    "rules": [
+      {
+        "answer_value": "0",
+        "maxGrade": "M"
+      },
+      {
+        "answer_value": "1",
+        "maxGrade": "VG"
+      },
+      {
+        "answer_value": "2",
+        "maxGrade": "G"
+      }
+    ]
   },
-
   {
+    "answerType": "scale",
+    "item": [
+      "sleeve"
+    ],
     "label": "Has the sleeve got a ring wear?",
-    "item": ["sleeve"],
     "prop": "s_ring_wear",
-    "answerType": "scale",
-    "rules": {
-      "0": "M",
-      "1": "VG+",
-      "2": "G"
-    }
+    "rules": [
+      {
+        "answer_value": "0",
+        "maxGrade": "M"
+      },
+      {
+        "answer_value": "1",
+        "maxGrade": "VG+"
+      },
+      {
+        "answer_value": "2",
+        "maxGrade": "G"
+      }
+    ]
   },
-
   {
+    "answerType": "scale",
+    "item": [
+      "sleeve"
+    ],
     "label": "Are the sleeve seams split?",
-    "item": ["sleeve"],
     "prop": "s_seam_split",
-    "answerType": "scale",
-    "rules": {
-      "0": "M",
-      "1": "VG+",
-      "2": "VG"
-    }
+    "rules": [
+      {
+        "answer_value": "0",
+        "maxGrade": "M"
+      },
+      {
+        "answer_value": "1",
+        "maxGrade": "VG+"
+      },
+      {
+        "answer_value": "2",
+        "maxGrade": "VG"
+      }
+    ]
   },
-
   {
+    "answerType": "scale",
+    "item": [
+      "sleeve"
+    ],
     "label": "Are the sleeve corners worn?",
-    "item": ["sleeve"],
     "prop": "s_worn_corner",
-    "answerType": "scale",
-    "rules": {
-      "0": "M",
-      "1": "VG+",
-      "2": "G"
-    }
+    "rules": [
+      {
+        "answer_value": "0",
+        "maxGrade": "M"
+      },
+      {
+        "answer_value": "1",
+        "maxGrade": "VG+"
+      },
+      {
+        "answer_value": "2",
+        "maxGrade": "G"
+      }
+    ]
   },
-
   {
-    "label": "Has the sleeve got creases?",
-    "item": ["sleeve"],
-    "prop": "s_crease",
     "answerType": "scale",
-    "rules": {
-      "0": "M",
-      "1": "VG",
-      "2": "P"
-    }
+    "item": [
+      "sleeve"
+    ],
+    "label": "Has the sleeve got creases?",
+    "prop": "s_crease",
+    "rules": [
+      {
+        "answer_value": "0",
+        "maxGrade": "M"
+      },
+      {
+        "answer_value": "1",
+        "maxGrade": "VG"
+      },
+      {
+        "answer_value": "2",
+        "maxGrade": "P"
+      }
+    ]
   }
 ]
