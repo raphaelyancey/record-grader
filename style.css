@@ -1,16 +1,1 @@
-body {
-  font-family: Open Sans, Helvetica, Arial, sans-serif;
-  font-size: 15px;
-  background: white;
-  color: #2D2D2D; }
-
-.criterion {
-  margin-bottom: 10px; }
-  .criterion .criterion_choice {
-    margin-right: 10px; }
-    .criterion .criterion_choice input {
-      margin-right: 3px; }
-    .criterion .criterion_choice:last-child {
-      margin-right: 0; }
-
-/*# sourceMappingURL=style.css.map */
+body{font-family:Open Sans,Helvetica,Arial,sans-serif}.criterion{margin-bottom:10px}.criterion .criterion_choice{margin-right:10px;font-size:.9em}.criterion .criterion_choice input{margin-right:3px}.criterion .criterion_choice:last-child{margin-right:0}/*# sourceMappingURL=style.css.map */

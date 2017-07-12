@@ -1,0 +1,81 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    title Music Record Grader
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css', integrity='sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ', crossorigin='anonymous')
+    link(rel='stylesheet', href='style.css', type='text/css')
+    link(href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600', rel='stylesheet', type='text/css')
+  body(ng-app='recordGrader', ng-controller='MainController')
+    .container
+      .row
+        .col-sm-12.mt-4
+          h2
+            strong Vinyl record &amp; sleeve grader
+          p
+            | This tool will help you grade vinyl records according to the <a href='http://www.goldminemag.com/collector-resources/record-grading-101/2'>Goldmine guidelines</a>.
+      .row.mt-4
+        .col-md-6.col-sm-12
+          h4
+            | Record 
+            span.badge.badge-primary {{ result.record }}
+          hr
+          rg-questions(criterions="outliers_r_criterions" answers="answers")
+
+          h5.text-muted Visual
+          hr
+          rg-questions(criterions="rv_criterions" answers="answers")
+
+          h5.text-muted Playback
+          hr
+          rg-questions(criterions="rp_criterions" answers="answers")
+       
+        .mt-2.hidden-sm-up  
+        .col-md-6.col-sm-12
+          h4
+            | Sleeve 
+            span.badge.badge-primary {{ result.sleeve }}
+          hr
+          rg-questions(criterions="s_criterions" answers="answers")
+
+      p.text-muted.mt-4
+        b How is the grade computed?
+        |  The initial grade is M, and each answer will lower (or at best keep) it. For example, if the record is perfect but you hear a background noise when playing, according to the guidelines it can't be higher than VG.
+      p.text-muted.mt-4
+        | You might get weird grades while messing with the answers. Make sure the combination of answers is plausible in real life to get an accurate grade, e.g. a badly warped record is most of the time (if not all) also audibly warped.
+      div(ng-if='ui.comments')
+        #disqus_thread
+        script.
+          /**
+          *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+          *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+          /*
+          var disqus_config = function () {
+          this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+          this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+          };
+          */
+          (function() { // DON'T EDIT BELOW THIS LINE
+          var d = document, s = d.createElement('script');
+          s.src = 'https://raphaelyancey-experiments.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+          })();
+        noscript
+          | Please enable JavaScript to view the 
+          a(href='https://disqus.com/?ref_noscript') comments powered by Disqus.
+        script#dsq-count-scr(src='//raphaelyancey-experiments.disqus.com/count.js', async='')
+      .mt-4.mb-4.text-muted
+        small
+          | Made by 
+          a(href='http://raphaelyancey.fr') Raphael Yancey
+          |  — 2017
+    script(src='https://code.jquery.com/jquery-3.1.1.slim.min.js', integrity='sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n', crossorigin='anonymous')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js', integrity='sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb', crossorigin='anonymous')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js', integrity='sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn', crossorigin='anonymous')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js')
+    script(type='text/javascript', src='app.js')
+    script(type='text/javascript', src='dir_rg-questions.js')
+    script#dsq-count-scr(src='//raphaelyancey-experiments.disqus.com/count.js', async='')

@@ -1,7 +1,7 @@
 [
   {
     "label": "Is the record unsealed?",
-    "item": "record",
+    "item": ["record", "visual"],
     "prop": "r_unsealed",
     "answerType": "bool",
     "rules": {
@@ -12,7 +12,7 @@
 
   {
     "label": "Has the record ever been played?",
-    "item": "record",
+    "item": ["record", "playback"],
     "prop": "r_played",
     "answerType": "bool",
     "rules": {
@@ -23,7 +23,7 @@
 
   {
     "label": "Is the record skipping while playing?",
-    "item": "record",
+    "item": ["record", "playback"],
     "prop": "r_skipping",
     "answerType": "bool",
     "rules": {
@@ -34,7 +34,7 @@
 
   {
     "label": "Is the record warped?",
-    "item": "record",
+    "item": ["record", "visual"],
     "prop": "r_visible_warp",
     "answerType": "scale",
     "rules": {
@@ -46,7 +46,7 @@
 
   {
     "label": "Do you hear record warps?",
-    "item": "record",
+    "item": ["record", "playback"],
     "prop": "r_audible_warp",
     "answerType": "scale",
     "rules": {
@@ -58,7 +58,7 @@
 
   {
     "label": "Do you see scratches on the surface?",
-    "item": "record",
+    "item": ["record", "visual"],
     "prop": "r_visible_scratch",
     "answerType": "scale",
     "rules": {
@@ -70,7 +70,7 @@
 
   {
     "label": "Do you hear scratches when playing?",
-    "item": "record",
+    "item": ["record", "playback"],
     "prop": "r_audible_scratch",
     "answerType": "scale",
     "rules": {
@@ -82,7 +82,7 @@
 
   {
     "label": "Do you hear noise when playing?",
-    "item": "record",
+    "item": ["record", "playback"],
     "prop": "r_noisy",
     "answerType": "scale",
     "rules": {
@@ -94,7 +94,7 @@
 
   {
     "label": "Is the label uncentered?",
-    "item": "record",
+    "item": ["record", "visual"],
     "prop": "r_misplaced_label",
     "answerType": "bool",
     "rules": {
@@ -105,7 +105,7 @@
 
   {
     "label": "Is the center hole worn out?",
-    "item": "record",
+    "item": ["record", "visual"],
     "prop": "r_worn_center_hole",
     "answerType": "bool",
     "rules": {
@@ -116,7 +116,7 @@
 
   {
     "label": "Is the label worn out?",
-    "item": "record",
+    "item": ["record", "visual"],
     "prop": "r_worn_label",
     "answerType": "scale",
     "rules": {
@@ -128,7 +128,7 @@
 
   {
     "label": "Is the sleeve cut-out?",
-    "item": "sleeve",
+    "item": ["sleeve"],
     "prop": "s_cut_out",
     "answerType": "bool",
     "rules": {
@@ -139,7 +139,7 @@
 
   {
     "label": "Is there any writing, sticker or similar?",
-    "item": "sleeve",
+    "item": ["sleeve"],
     "prop": "s_external_addition",
     "answerType": "scale",
     "rules": {
@@ -151,7 +151,7 @@
 
   {
     "label": "Has the sleeve got a ring wear?",
-    "item": "sleeve",
+    "item": ["sleeve"],
     "prop": "s_ring_wear",
     "answerType": "scale",
     "rules": {
@@ -163,7 +163,7 @@
 
   {
     "label": "Are the sleeve seams split?",
-    "item": "sleeve",
+    "item": ["sleeve"],
     "prop": "s_seam_split",
     "answerType": "scale",
     "rules": {
@@ -175,7 +175,7 @@
 
   {
     "label": "Are the sleeve corners worn?",
-    "item": "sleeve",
+    "item": ["sleeve"],
     "prop": "s_worn_corner",
     "answerType": "scale",
     "rules": {
@@ -187,7 +187,7 @@
 
   {
     "label": "Has the sleeve got creases?",
-    "item": "sleeve",
+    "item": ["sleeve"],
     "prop": "s_crease",
     "answerType": "scale",
     "rules": {
