@@ -182,7 +182,7 @@
       },
       {
         "answerValue": "1",
-        "answerLabel": "A little, during quiet moments",
+        "answerLabel": "During quietest parts",
         "maxGrade": "VG"
       },
       {
@@ -335,12 +335,12 @@
     "item": [
       "sleeve"
     ],
-    "label": "Are the sleeve seams split?",
+    "label": "How many sleeve seams are split or damaged?",
     "prop": "s_seam_split",
     "rules": [
       {
         "answerValue": "0",
-        "answerLabel": "No",
+        "answerLabel": "None",
         "maxGrade": "M"
       },
       {

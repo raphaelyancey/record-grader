@@ -21,11 +21,10 @@
           <h4>Record <span class="badge badge-primary">{{ result.record }}</span></h4>
           <hr>
           <rg-questions criterions="outliers_r_criterions" answers="answers"></rg-questions>
-          <h5 class="text-muted">Visual</h5>
-          <hr>
+          <h5 class="text-muted mb-3">Visual</h5>
           <rg-questions criterions="rv_criterions" answers="answers"></rg-questions>
-          <h5 class="text-muted mt-3">Playback</h5>
           <hr>
+          <h5 class="text-muted mt-3 mb-3">Playback</h5>
           <rg-questions criterions="rp_criterions" answers="answers"></rg-questions>
         </div>
         <div class="mt-2 hidden-sm-up"> </div>
@@ -38,7 +37,6 @@
       <p class="text-muted mt-4"><b>How is the grade computed?</b> The initial grade is M, and each answer will lower (or at best keep) it. For example, if the record is perfect but you hear a background noise when playing, according to the guidelines it can't be higher than VG.</p>
       <p class="text-muted mt-4">You might get weird grades while messing with the answers. Make sure the combination of answers is plausible in real life to get an accurate grade, e.g. a badly warped record is most of the time (if not all) also audibly warped.</p>
       <div class="mt-4 mb-4 text-muted"><small>Made by <a href="http://raphaelyancey.fr">Raphael Yancey</a> — 2017</small></div>
-      <pre>{{ answers | json }}</pre>
     </div>
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
