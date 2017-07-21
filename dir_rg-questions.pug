@@ -1,20 +1,8 @@
 section.criterion(ng-repeat="criterion in criterions")
   //- pre {{ criterion | json }}
   strong {{ criterion.label }}
-  div(ng-if="criterion.answerType == 'bool'")
-    label.criterion_choice
-      input(type='radio', value='0', ng-model="answers['record'][criterion.prop]")
-      |  No
-    label.criterion_choice
-      input(type='radio', value='1', ng-model="answers['record'][criterion.prop]")
-      |  Yes
-  div(ng-if="criterion.answerType == 'scale'")
-    label.criterion_choice
-      input(type='radio', value='0', ng-model="answers['record'][criterion.prop]")
-      |  None
-    label.criterion_choice
-      input(type='radio', value='1', ng-model="answers['record'][criterion.prop]")
-      |  A little
-    label.criterion_choice
-      input(type='radio', value='2', ng-model="answers['record'][criterion.prop]")
-      |  More than a little
+  div: label.criterion_choice(ng-repeat="rule in criterion.rules")
+    input(type="radio"
+          ng-value="rule.answerValue"
+          ng-model="answers[getGradedEntity(criterion)][criterion.prop]")
+    | &nbsp;{{ rule.answerLabel }}

@@ -10,9 +10,16 @@ app.directive('rgQuestions', [function() {
     },
     link: function($scope) {
 
-      function customAnswer(criterion) {
 
-      }
+
+      $scope.getGradedEntity = function(criterion) {
+        if(criterion.item.indexOf("sleeve") > -1 && criterion.item.indexOf("record") > -1) {
+          return 'unknown';
+          console.err("Couldn't determine if criterion is for sleeve or record.", criterion);
+        }
+        else if(criterion.item.indexOf("sleeve") > -1) return 'sleeve';
+        else if(criterion.item.indexOf("record") > -1) return 'record';
+      };
     }
   }
 }]);

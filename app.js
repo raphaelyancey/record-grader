@@ -39,32 +39,38 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http) {
 	}
 
 	function computeGrade(answers, criterions, orderedGrades, callback) {		
-		var gradePosition = Object.keys(answers).reduce(function(prev, key) {	
-			var criterion = _.findWhere(criterions, { prop: key });
-			var gradeAnswer = criterion.rules[answers[key]];
-			var gradeAnswerPos = orderedGrades.indexOf(gradeAnswer);
-			if(gradeAnswerPos < prev) return gradeAnswerPos;
+
+		var gradePosition = Object.keys(answers).reduce(function(prev, criterionProp) {	
+
+			// Find the criterion details of the current criterion prop
+			var criterion = _.findWhere(criterions, { prop: criterionProp });
+
+			// Find the grade of the current criterion
+			var answerRule = _.findWhere(criterion.rules, { answerValue: answers[criterionProp] });
+			var answerGrade = answerRule.maxGrade;
+
+			// Get the position of this grade in the ordered grade array
+			var answerGradePos = orderedGrades.indexOf(answerGrade);
+
+			// Returns the grade if it's below the worst grade encountered during the reduction
+			if(answerGradePos < prev) return answerGradePos;
 			else return prev;
+
 		}, (orderedGrades.length - 1));
+
 		callback(orderedGrades[gradePosition]);
 	}
 
 	$scope.$watchCollection('answers.record', function(n) {
 		if(!n) return;
-		var r_criterions = _.filter($scope.criterions, function(criterion) {
-			return criterion.item == 'record';
-		});
-		computeGrade(n, r_criterions, orderedGrades, function(res) {
+		computeGrade(n, $scope.all_r_criterions, orderedGrades, function(res) {
 			$scope.result.record = res;
 		});
 	});
 
 	$scope.$watchCollection('answers.sleeve', function(n) {
 		if(!n) return;
-		var s_criterions = _.filter($scope.criterions, function(criterion) {
-			return criterion.item == 'sleeve';
-		});
-		computeGrade(n, s_criterions, orderedGrades, function(res) {
+		computeGrade(n, $scope.s_criterions, orderedGrades, function(res) {
 			$scope.result.sleeve = res;
 		});
 	});

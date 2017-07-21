@@ -5,15 +5,17 @@
       "record",
       "visual"
     ],
-    "label": "Is the record unsealed?",
+    "label": "Is the record still sealed?",
     "prop": "r_unsealed",
     "rules": [
       {
-        "answer_value": "0",
+        "answerValue": "0",
+        "answerLabel": "Yes",
         "maxGrade": "M"
       },
       {
-        "answer_value": "1",
+        "answerValue": "1",
+        "answerLabel": "No",
         "maxGrade": "NM"
       }
     ]
@@ -28,11 +30,13 @@
     "prop": "r_played",
     "rules": [
       {
-        "answer_value": "0",
+        "answerValue": "0",
+        "answerLabel": "No",
         "maxGrade": "M"
       },
       {
-        "answer_value": "1",
+        "answerValue": "1",
+        "answerLabel": "Yes",
         "maxGrade": "NM"
       }
     ]
@@ -47,11 +51,13 @@
     "prop": "r_skipping",
     "rules": [
       {
-        "answer_value": "0",
+        "answerValue": "0",
+        "answerLabel": "Yes",
         "maxGrade": "M"
       },
       {
-        "answer_value": "1",
+        "answerValue": "1",
+        "answerLabel": "Yes",
         "maxGrade": "P"
       }
     ]
@@ -66,15 +72,18 @@
     "prop": "r_visible_warp",
     "rules": [
       {
-        "answer_value": "0",
+        "answerValue": "0",
+        "answerLabel": "No",
         "maxGrade": "M"
       },
       {
-        "answer_value": "1",
+        "answerValue": "1",
+        "answerLabel": "Very slightly",
         "maxGrade": "VG+"
       },
       {
-        "answer_value": "2",
+        "answerValue": "2",
+        "answerLabel": "Obviously",
         "maxGrade": "P"
       }
     ]
@@ -89,15 +98,18 @@
     "prop": "r_audible_warp",
     "rules": [
       {
-        "answer_value": "0",
+        "answerValue": "0",
+        "answerLabel": "No",
         "maxGrade": "M"
       },
       {
-        "answer_value": "1",
+        "answerValue": "1",
+        "answerLabel": "A little",
         "maxGrade": "VG"
       },
       {
-        "answer_value": "2",
+        "answerValue": "2",
+        "answerLabel": "More than a little",
         "maxGrade": "P"
       }
     ]
@@ -108,19 +120,22 @@
       "record",
       "visual"
     ],
-    "label": "Do you see scratches on the surface?",
+    "label": "Do you see scratches on the groove surface?",
     "prop": "r_visible_scratch",
     "rules": [
       {
-        "answer_value": "0",
+        "answerValue": "0",
+        "answerLabel": "No",
         "maxGrade": "M"
       },
       {
-        "answer_value": "1",
+        "answerValue": "1",
+        "answerLabel": "A little",
         "maxGrade": "VG+"
       },
       {
-        "answer_value": "2",
+        "answerValue": "2",
+        "answerLabel": "More than a little",
         "maxGrade": "G"
       }
     ]
@@ -135,15 +150,18 @@
     "prop": "r_audible_scratch",
     "rules": [
       {
-        "answer_value": "0",
+        "answerValue": "0",
+        "answerLabel": "No",
         "maxGrade": "M"
       },
       {
-        "answer_value": "1",
+        "answerValue": "1",
+        "answerLabel": "A little",
         "maxGrade": "VG"
       },
       {
-        "answer_value": "2",
+        "answerValue": "2",
+        "answerLabel": "More than a little",
         "maxGrade": "P"
       }
     ]
@@ -158,15 +176,18 @@
     "prop": "r_noisy",
     "rules": [
       {
-        "answer_value": "0",
+        "answerValue": "0",
+        "answerLabel": "No",
         "maxGrade": "M"
       },
       {
-        "answer_value": "1",
+        "answerValue": "1",
+        "answerLabel": "A little, during quiet moments",
         "maxGrade": "VG"
       },
       {
-        "answer_value": "2",
+        "answerValue": "2",
+        "answerLabel": "Obviously",
         "maxGrade": "G"
       }
     ]
@@ -177,15 +198,17 @@
       "record",
       "visual"
     ],
-    "label": "Is the label uncentered?",
+    "label": "Is the label well centered?",
     "prop": "r_misplaced_label",
     "rules": [
       {
-        "answer_value": "0",
+        "answerValue": "0",
+        "answerLabel": "Yes",
         "maxGrade": "M"
       },
       {
-        "answer_value": "1",
+        "answerValue": "1",
+        "answerLabel": "No",
         "maxGrade": "VG+"
       }
     ]
@@ -200,11 +223,13 @@
     "prop": "r_worn_center_hole",
     "rules": [
       {
-        "answer_value": "0",
+        "answerValue": "0",
+        "answerLabel": "No",
         "maxGrade": "M"
       },
       {
-        "answer_value": "1",
+        "answerValue": "1",
+        "answerLabel": "Yes",
         "maxGrade": "VG+"
       }
     ]
@@ -219,15 +244,18 @@
     "prop": "r_worn_label",
     "rules": [
       {
-        "answer_value": "0",
+        "answerValue": "0",
+        "answerLabel": "No",
         "maxGrade": "M"
       },
       {
-        "answer_value": "1",
+        "answerValue": "1",
+        "answerLabel": "A little",
         "maxGrade": "VG+"
       },
       {
-        "answer_value": "2",
+        "answerValue": "2",
+        "answerLabel": "More than a little",
         "maxGrade": "G"
       }
     ]
@@ -241,11 +269,13 @@
     "prop": "s_cut_out",
     "rules": [
       {
-        "answer_value": "0",
+        "answerValue": "0",
+        "answerLabel": "No",
         "maxGrade": "M"
       },
       {
-        "answer_value": "1",
+        "answerValue": "1",
+        "answerLabel": "Yes",
         "maxGrade": "VG+"
       }
     ]
@@ -259,15 +289,18 @@
     "prop": "s_external_addition",
     "rules": [
       {
-        "answer_value": "0",
+        "answerValue": "0",
+        "answerLabel": "No",
         "maxGrade": "M"
       },
       {
-        "answer_value": "1",
+        "answerValue": "1",
+        "answerLabel": "Very few",
         "maxGrade": "VG"
       },
       {
-        "answer_value": "2",
+        "answerValue": "2",
+        "answerLabel": "More than a few",
         "maxGrade": "G"
       }
     ]
@@ -281,15 +314,18 @@
     "prop": "s_ring_wear",
     "rules": [
       {
-        "answer_value": "0",
+        "answerValue": "0",
+        "answerLabel": "No",
         "maxGrade": "M"
       },
       {
-        "answer_value": "1",
+        "answerValue": "1",
+        "answerLabel": "Slightly visible",
         "maxGrade": "VG+"
       },
       {
-        "answer_value": "2",
+        "answerValue": "2",
+        "answerLabel": "Clearly visible",
         "maxGrade": "G"
       }
     ]
@@ -303,15 +339,18 @@
     "prop": "s_seam_split",
     "rules": [
       {
-        "answer_value": "0",
+        "answerValue": "0",
+        "answerLabel": "No",
         "maxGrade": "M"
       },
       {
-        "answer_value": "1",
+        "answerValue": "1",
+        "answerLabel": "Just one",
         "maxGrade": "VG+"
       },
       {
-        "answer_value": "2",
+        "answerValue": "2",
+        "answerLabel": "More than one",
         "maxGrade": "VG"
       }
     ]
@@ -325,15 +364,18 @@
     "prop": "s_worn_corner",
     "rules": [
       {
-        "answer_value": "0",
+        "answerValue": "0",
+        "answerLabel": "No",
         "maxGrade": "M"
       },
       {
-        "answer_value": "1",
+        "answerValue": "1",
+        "answerLabel": "Slightly",
         "maxGrade": "VG+"
       },
       {
-        "answer_value": "2",
+        "answerValue": "2",
+        "answerLabel": "Obviously",
         "maxGrade": "G"
       }
     ]
@@ -347,15 +389,18 @@
     "prop": "s_crease",
     "rules": [
       {
-        "answer_value": "0",
+        "answerValue": "0",
+        "answerLabel": "No",
         "maxGrade": "M"
       },
       {
-        "answer_value": "1",
+        "answerValue": "1",
+        "answerLabel": "Very few",
         "maxGrade": "VG"
       },
       {
-        "answer_value": "2",
+        "answerValue": "2",
+        "answerLabel": "More than a few",
         "maxGrade": "P"
       }
     ]
