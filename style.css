@@ -1,1 +1,26 @@
-body{font-family:Open Sans,Helvetica,Arial,sans-serif}.criterion{margin-bottom:10px}.criterion .criterion_choice{margin-right:10px;font-size:.9em}.criterion .criterion_choice input{margin-right:3px}.criterion .criterion_choice:last-child{margin-right:0}/*# sourceMappingURL=style.css.map */
+body {
+  font-family: Open Sans, Helvetica, Arial, sans-serif;
+}
+.sleeve-logo {
+  height: 120px;
+  width: 120px;
+  border: 1px solid grey;
+  margin-right: 20px;
+}
+.sleeve-logo img {
+  height: 100%;
+  border-radius: 1px;
+}
+.criterion {
+  margin-bottom: 10px;
+}
+.criterion .criterion_choice {
+  margin-right: 10px;
+  font-size: 0.9em;
+}
+.criterion .criterion_choice input {
+  margin-right: 3px;
+}
+.criterion .criterion_choice:last-child {
+  margin-right: 0;
+}
