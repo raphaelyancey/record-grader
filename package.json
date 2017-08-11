@@ -1,0 +1,23 @@
+{
+  "name": "record-grader",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist.js",
+  "dependencies": {
+    "random-record-sleeve": "^0.0.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raphaelyancey/record-grader.git"
+  },
+  "author": "Raphael Yancey",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/raphaelyancey/record-grader/issues"
+  },
+  "homepage": "https://github.com/raphaelyancey/record-grader#readme"
+}
