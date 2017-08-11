@@ -5,7 +5,8 @@ app.directive('rgRandomCover', ['$http', function($http) {
     restrict: 'A',
     scope: {
       discogsCredentials: '=',
-      discogsListId: '=?'
+      discogsListId: '=?',
+      fallback: '=?'
     },
     link: function($scope, $elem, $attr) {
 
@@ -22,6 +23,7 @@ app.directive('rgRandomCover', ['$http', function($http) {
 
       var DISCOGS_API = 'https://api.discogs.com';
       var DISCOGS_CREDENTIALS = '?key='+$scope.discogsCredentials.key+'&secret='+$scope.discogsCredentials.secret;
+      var FALLBACK_URI = 'dj_krush_milight'
 
       $scope.discogsListId = $scope.discogsListId || 2056; // Defaults to "Most Popular Albums" list
 
@@ -46,9 +48,11 @@ app.directive('rgRandomCover', ['$http', function($http) {
 
       getList($scope.discogsListId).then(function(res) {
         var rand = random(0, res.data.items.length);
-        getItem(res.data.items[rand].id).then(function(res) {
-          updateImage(res.data.images[0].uri, res.data.title+' ('+res.data.year+')');
+        return getItem(res.data.items[rand].id).then(function(res) {
+          updateImage(res.data.images[0].uri150, res.data.title+' ('+res.data.year+')');
         });
+      }).catch(function() {
+        if($scope.fallback) updateImage($scope.fallback.url, $scope.fallback.title, $scope.fallback.alt);
       });
     }
   }
