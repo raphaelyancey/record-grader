@@ -29,8 +29,7 @@ app.directive('rgRandomCover', ['$http', function($http) {
       var sleeve = rrs.getSleeve({
         size150: true
       }).then(function(res) {
-        console.log('••• res', res);
-        updateImage(res);
+        updateImage(res.url, res.title+' ('+res.year+')');
       }).catch(function(err) {
         console.log('••• err', err);
       });

@@ -4,9 +4,13 @@
   "description": "",
   "main": "dist.js",
   "dependencies": {
-    "random-record-sleeve": "^0.0.5"
+    "random-record-sleeve": "0.0.7"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "browserify": "^14.4.0",
+    "less": "^2.7.2",
+    "pug-cli": "^1.0.0-alpha6"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
