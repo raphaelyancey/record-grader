@@ -9,4 +9,4 @@ Grade your records by answering limpid questions.
 * `npm start` serves on [http://localhost:8080](http://localhost:8080)
 
 ## TODO
-[] Switch to grunt (handles assets, CSS & so on)
+- [ ] Switch to grunt (handles assets, CSS & so on)
