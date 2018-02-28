@@ -195,6 +195,7 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http) {
 	$scope.rv_criterions = [];
 	$scope.rp_criterions = [];
 	$scope.s_criterions = [];
+	$scope.limitingCriterions = {};
 	$scope.result = {
 		record: null,
 		sleeve: null
@@ -254,7 +255,7 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http) {
 				return prev;
 		}, (orderedGrades.length - 1));
 
-		$scope.limitingCriterions = _.filter(maxGradePerAnswer, function(answer) {
+		limitingCriterions = _.filter(maxGradePerAnswer, function(answer) {
 			return answer == orderedGrades[gradePosition];
 		}).length;
 
@@ -263,20 +264,22 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http) {
 		console.log('••• orderedGrades[gradePosition]', orderedGrades[gradePosition]);
 		console.log('••• $scope.limitingCriterions', $scope.limitingCriterions);
 
-		callback(orderedGrades[gradePosition]);
+		callback(orderedGrades[gradePosition], limitingCriterions);
 	}
 
 	$scope.$watchCollection('answers.record', function(n) {
 		if(!n) return;
-		computeGrade(n, $scope.all_r_criterions, orderedGrades, function(res) {
-			$scope.result.record = res;
+		computeGrade(n, $scope.all_r_criterions, orderedGrades, function(maxGrade, limitingCriterions) {
+			$scope.result.record = maxGrade;
+			$scope.limitingCriterions.record = limitingCriterions;
 		});
 	});
 
 	$scope.$watchCollection('answers.sleeve', function(n) {
 		if(!n) return;
-		computeGrade(n, $scope.s_criterions, orderedGrades, function(res) {
-			$scope.result.sleeve = res;
+		computeGrade(n, $scope.s_criterions, orderedGrades, function(maxGrade, limitingCriterions) {
+			$scope.result.sleeve = maxGrade;
+			$scope.limitingCriterions.sleeve = limitingCriterions;
 		});
 	});
 
