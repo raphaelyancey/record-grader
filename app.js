@@ -38,10 +38,9 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http) {
 		});
 	}
 
-	function computeGrade(answers, criterions, orderedGrades, callback) {		
+	function computeGrade(answers, criterions, orderedGrades, callback) {
 
-		var gradePosition = Object.keys(answers).reduce(function(prev, criterionProp) {	
-
+		function computeGradePosition(answers, criterions, orderedGrades, criterionProp) {
 			// Find the criterion details of the current criterion prop
 			var criterion = _.findWhere(criterions, { prop: criterionProp });
 
@@ -51,12 +50,31 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http) {
 
 			// Get the position of this grade in the ordered grade array
 			var answerGradePos = orderedGrades.indexOf(answerGrade);
+			return answerGradePos;
+		}
 
-			// Returns the grade if it's below the worst grade encountered during the reduction
-			if(answerGradePos < prev) return answerGradePos;
-			else return prev;
-
+		var maxGradePerAnswer = Object.keys(answers).map(function(criterionProp) {
+			answerGradePos = computeGradePosition(answers, criterions, orderedGrades, criterionProp);
+			return orderedGrades[answerGradePos];
 		}, (orderedGrades.length - 1));
+
+		var gradePosition = Object.keys(answers).reduce(function(prev, criterionProp) {
+			answerGradePos = computeGradePosition(answers, criterions, orderedGrades, criterionProp);
+			// Returns the grade if it's below the worst grade encountered during the reduction
+			if(answerGradePos < prev)
+				return answerGradePos;
+			else
+				return prev;
+		}, (orderedGrades.length - 1));
+
+		$scope.limitingCriterions = _.filter(maxGradePerAnswer, function(answer) {
+			return answer == orderedGrades[gradePosition];
+		}).length;
+
+		console.log('••• maxGradePerAnswer', maxGradePerAnswer)
+		console.log('••• gradePosition', gradePosition)
+		console.log('••• orderedGrades[gradePosition]', orderedGrades[gradePosition]);
+		console.log('••• $scope.limitingCriterions', $scope.limitingCriterions);
 
 		callback(orderedGrades[gradePosition]);
 	}

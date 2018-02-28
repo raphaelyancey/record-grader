@@ -16,7 +16,8 @@
       {
         "answerValue": "1",
         "answerLabel": "No",
-        "maxGrade": "NM"
+        "maxGrade": "NM",
+        "gradeExplanation": "The record is not sealed"
       }
     ]
   },
@@ -37,7 +38,8 @@
       {
         "answerValue": "1",
         "answerLabel": "Yes",
-        "maxGrade": "NM"
+        "maxGrade": "NM",
+        "gradeExplanation": "The record has been played"
       }
     ]
   },
@@ -52,13 +54,14 @@
     "rules": [
       {
         "answerValue": "0",
-        "answerLabel": "Yes",
+        "answerLabel": "No",
         "maxGrade": "M"
       },
       {
         "answerValue": "1",
         "answerLabel": "Yes",
-        "maxGrade": "P"
+        "maxGrade": "P",
+        "gradeExplanation": "The record is skipping when played"
       }
     ]
   },
@@ -79,12 +82,14 @@
       {
         "answerValue": "1",
         "answerLabel": "Very slightly",
-        "maxGrade": "VG+"
+        "maxGrade": "VG+",
+        "gradeExplanation": "The record is slightly warped (to the eye)"
       },
       {
         "answerValue": "2",
         "answerLabel": "Obviously",
-        "maxGrade": "P"
+        "maxGrade": "P",
+        "gradeExplanation": "The record is obviously warped (to the eye)"
       }
     ]
   },
@@ -105,12 +110,14 @@
       {
         "answerValue": "1",
         "answerLabel": "A little",
-        "maxGrade": "VG"
+        "maxGrade": "VG",
+        "gradeExplanation": "The record is slightly warped (to the ear)"
       },
       {
         "answerValue": "2",
         "answerLabel": "More than a little",
-        "maxGrade": "P"
+        "maxGrade": "P",
+        "gradeExplanation": "The record is obviously warped (to the ear)"
       }
     ]
   },
@@ -131,12 +138,14 @@
       {
         "answerValue": "1",
         "answerLabel": "A little",
-        "maxGrade": "VG+"
+        "maxGrade": "VG+",
+        "gradeExplanation": "The record is slightly scratched (to the eye)"
       },
       {
         "answerValue": "2",
         "answerLabel": "More than a little",
-        "maxGrade": "G"
+        "maxGrade": "G",
+        "gradeExplanation": "The record is undoubtedly scratched (to the eye)"
       }
     ]
   },
@@ -157,12 +166,14 @@
       {
         "answerValue": "1",
         "answerLabel": "A little",
-        "maxGrade": "VG"
+        "maxGrade": "VG",
+        "gradeExplanation": "The record is slightly scratched (to the ear)"
       },
       {
         "answerValue": "2",
         "answerLabel": "More than a little",
-        "maxGrade": "P"
+        "maxGrade": "P",
+        "gradeExplanation": "The record is undoubtedly scratched (to the ear)"
       }
     ]
   },
@@ -183,12 +194,14 @@
       {
         "answerValue": "1",
         "answerLabel": "During quietest parts",
-        "maxGrade": "VG"
+        "maxGrade": "VG",
+        "gradeExplanation": "The record is noisy (during quiet parts)"
       },
       {
         "answerValue": "2",
         "answerLabel": "Obviously",
-        "maxGrade": "G"
+        "maxGrade": "G",
+        "gradeExplanation": "The record is noisy all along"
       }
     ]
   },
@@ -209,7 +222,8 @@
       {
         "answerValue": "1",
         "answerLabel": "No",
-        "maxGrade": "VG+"
+        "maxGrade": "VG+",
+        "gradeExplanation": "The label is misplaced"
       }
     ]
   },
@@ -230,7 +244,8 @@
       {
         "answerValue": "1",
         "answerLabel": "Yes",
-        "maxGrade": "VG+"
+        "maxGrade": "VG+",
+        "gradeExplanation": "The center hole is worn out"
       }
     ]
   },
@@ -251,12 +266,14 @@
       {
         "answerValue": "1",
         "answerLabel": "A little",
-        "maxGrade": "VG+"
+        "maxGrade": "VG+",
+        "gradeExplanation": "The label is slightly worn out"
       },
       {
         "answerValue": "2",
         "answerLabel": "More than a little",
-        "maxGrade": "G"
+        "maxGrade": "G",
+        "gradeExplanation": "The label is undoubtedly worn out"
       }
     ]
   },
@@ -265,7 +282,7 @@
     "item": [
       "sleeve"
     ],
-    "label": "Is the sleeve cut-out?",
+    "label": "Is the sleeve cut out?",
     "prop": "s_cut_out",
     "rules": [
       {
@@ -276,7 +293,8 @@
       {
         "answerValue": "1",
         "answerLabel": "Yes",
-        "maxGrade": "VG+"
+        "maxGrade": "VG+",
+        "gradeExplanation": "The sleeve is cut out"
       }
     ]
   },
@@ -296,12 +314,14 @@
       {
         "answerValue": "1",
         "answerLabel": "Very few",
-        "maxGrade": "VG"
+        "maxGrade": "VG",
+        "gradeExplanation": "There are very few stickers on the sleeve"
       },
       {
         "answerValue": "2",
         "answerLabel": "More than a few",
-        "maxGrade": "G"
+        "maxGrade": "G",
+        "gradeExplanation": "There are more than a few stickers on the sleeve"
       }
     ]
   },
@@ -321,12 +341,14 @@
       {
         "answerValue": "1",
         "answerLabel": "Slightly visible",
-        "maxGrade": "VG+"
+        "maxGrade": "VG+",
+        "gradeExplanation": "The sleeve is slightly ring-worn"
       },
       {
         "answerValue": "2",
         "answerLabel": "Clearly visible",
-        "maxGrade": "G"
+        "maxGrade": "G",
+        "gradeExplanation": "The sleeve is undoubtedly ring-worn"
       }
     ]
   },
@@ -346,12 +368,14 @@
       {
         "answerValue": "1",
         "answerLabel": "Just one",
-        "maxGrade": "VG+"
+        "maxGrade": "VG+",
+        "gradeExplanation": "The sleeve has a split seam"
       },
       {
         "answerValue": "2",
         "answerLabel": "More than one",
-        "maxGrade": "VG"
+        "maxGrade": "VG",
+        "gradeExplanation": "The sleeve has multiple split seams"
       }
     ]
   },
@@ -371,12 +395,14 @@
       {
         "answerValue": "1",
         "answerLabel": "Slightly",
-        "maxGrade": "VG+"
+        "maxGrade": "VG+",
+        "gradeExplanation": "The sleeve corners are slightly worn out"
       },
       {
         "answerValue": "2",
         "answerLabel": "Obviously",
-        "maxGrade": "G"
+        "maxGrade": "G",
+        "gradeExplanation": "The sleeve corners are undoubtedly worn out"
       }
     ]
   },
@@ -396,12 +422,14 @@
       {
         "answerValue": "1",
         "answerLabel": "Very few",
-        "maxGrade": "VG"
+        "maxGrade": "VG",
+        "gradeExplanation": "The sleeve has a few creases"
       },
       {
         "answerValue": "2",
         "answerLabel": "More than a few",
-        "maxGrade": "P"
+        "maxGrade": "P",
+        "gradeExplanation": "The sleeve has more than a few creases"
       }
     ]
   }

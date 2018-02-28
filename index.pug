@@ -17,6 +17,9 @@ html(lang='en')
               p A tool for helping you to grade vinyl records according to the <a href='http://www.goldminemag.com/collector-resources/record-grading-101'>Goldmine guidelines</a>.
       .row.mt-4
         .col-md-6.col-sm-12
+          |Limiting criterions: {{ limitingCriterions }}
+      .row.mt-4
+        .col-md-6.col-sm-12
           h4
             | Record 
             span.badge.badge-primary {{ result.record }}
