@@ -68,14 +68,19 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http) {
 				return prev;
 		}, (orderedGrades.length - 1));
 
-		limitingCriterions = _.filter(maxGradePerAnswer, function(answer) {
-			return answer == orderedGrades[gradePosition];
-		}).length;
+		limitingCriterions = [];
 
-		console.log('••• maxGradePerAnswer', maxGradePerAnswer)
-		console.log('••• gradePosition', gradePosition)
-		console.log('••• orderedGrades[gradePosition]', orderedGrades[gradePosition]);
-		console.log('••• $scope.limitingCriterions', $scope.limitingCriterions);
+		answeredCriterions = _.filter(criterions, function(criterion) {
+			return answers[criterion.prop] !== undefined;
+		});
+
+		_.each(answeredCriterions, function(criterion) {
+			criterionAnswer = answers[criterion.prop];
+			_.each(criterion.rules, function(rule) {
+				if(criterionAnswer == rule.answerValue && orderedGrades[gradePosition] == rule.maxGrade)
+					limitingCriterions[criterion.prop] = rule;
+			});
+		});
 
 		callback(orderedGrades[gradePosition], limitingCriterions);
 	}
@@ -85,6 +90,7 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http) {
 		computeGrade(n, $scope.all_r_criterions, orderedGrades, function(maxGrade, limitingCriterions) {
 			$scope.result.record = maxGrade;
 			$scope.limitingCriterions.record = limitingCriterions;
+			console.log('••• $scope.limitingCriterions', $scope.limitingCriterions)
 		});
 	});
 
@@ -93,6 +99,7 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http) {
 		computeGrade(n, $scope.s_criterions, orderedGrades, function(maxGrade, limitingCriterions) {
 			$scope.result.sleeve = maxGrade;
 			$scope.limitingCriterions.sleeve = limitingCriterions;
+			console.log('••• $scope.limitingCriterions', $scope.limitingCriterions)
 		});
 	});
 

@@ -29,7 +29,7 @@
       </div>
       <div class="row mt-4">
         <div class="col-md-6 col-sm-12">
-          <h4>Record <span class="badge badge-primary">{{ result.record }}</span></h4>
+          <h4>Record <span class="badge badge-primary">{{ result.record }}</span><span class="badge why-link" ng-if="result.record"><a href="#">Why?</a></span></h4>
           <hr>
           <rg-questions criterions="outliers_r_criterions" answers="answers"></rg-questions>
           <h5 class="text-muted mb-3">Visual</h5>
@@ -40,7 +40,7 @@
         </div>
         <div class="mt-2 hidden-sm-up"> </div>
         <div class="col-md-6 col-sm-12">
-          <h4>Sleeve <span class="badge badge-primary">{{ result.sleeve }}</span></h4>
+          <h4>Sleeve <span class="badge badge-primary">{{ result.sleeve }}</span><span class="badge why-link" ng-if="result.sleeve"><a href="#">Why?</a></span></h4>
           <hr>
           <rg-questions criterions="s_criterions" answers="answers"></rg-questions>
         </div>

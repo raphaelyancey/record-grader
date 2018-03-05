@@ -24,3 +24,6 @@ body {
 .criterion .criterion_choice:last-child {
   margin-right: 0;
 }
+.why-link {
+  font-size: 15px;
+}

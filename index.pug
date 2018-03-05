@@ -24,6 +24,7 @@ html(lang='en')
           h4
             | Record 
             span.badge.badge-primary {{ result.record }}
+            span.badge.why-link(ng-if="result.record"): a(href="#") Why?
           hr
           rg-questions(criterions="outliers_r_criterions" answers="answers")
 
@@ -40,6 +41,7 @@ html(lang='en')
           h4
             | Sleeve 
             span.badge.badge-primary {{ result.sleeve }}
+            span.badge.why-link(ng-if="result.sleeve"): a(href="#") Why?
           hr
           rg-questions(criterions="s_criterions" answers="answers")
 
