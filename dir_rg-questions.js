@@ -6,16 +6,15 @@ app.directive('rgQuestions', [function() {
     templateUrl: 'dir_rg-questions.html',
     scope: {
       criterions: '=',
+      limitingCriterions: '=',
       answers: '='
     },
     link: function($scope) {
 
-
-
       $scope.getGradedEntity = function(criterion) {
         if(criterion.item.indexOf("sleeve") > -1 && criterion.item.indexOf("record") > -1) {
-          return 'unknown';
           console.err("Couldn't determine if criterion is for sleeve or record.", criterion);
+          return 'unknown';
         }
         else if(criterion.item.indexOf("sleeve") > -1) return 'sleeve';
         else if(criterion.item.indexOf("record") > -1) return 'record';

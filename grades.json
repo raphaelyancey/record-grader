@@ -17,7 +17,7 @@
         "answerValue": "1",
         "answerLabel": "No",
         "maxGrade": "NM",
-        "gradeExplanation": "The record is not sealed"
+        "gradeExplanation": "The record is unsealed"
       }
     ]
   },
@@ -39,7 +39,7 @@
         "answerValue": "1",
         "answerLabel": "Yes",
         "maxGrade": "NM",
-        "gradeExplanation": "The record has been played"
+        "gradeExplanation": "The record has already been played"
       }
     ]
   },
@@ -315,7 +315,7 @@
         "answerValue": "1",
         "answerLabel": "Very few",
         "maxGrade": "VG",
-        "gradeExplanation": "There are very few stickers on the sleeve"
+        "gradeExplanation": "There are few stickers on the sleeve"
       },
       {
         "answerValue": "2",

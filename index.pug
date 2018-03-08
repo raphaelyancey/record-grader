@@ -4,7 +4,7 @@ html(lang='en')
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
     title Music Record Grader
-    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css', integrity='sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ', crossorigin='anonymous')
+    link(href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css", rel="stylesheet", integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm", crossorigin="anonymous")
     link(rel='stylesheet', href='style.css', type='text/css')
     link(href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600', rel='stylesheet', type='text/css')
   body(ng-app='recordGrader', ng-controller='MainController')
@@ -17,33 +17,42 @@ html(lang='en')
               p A tool for helping you to grade vinyl records according to the <a href='http://www.goldminemag.com/collector-resources/record-grading-101'>Goldmine guidelines</a>.
       .row.mt-4
         .col-md-6.col-sm-12
-          div Record limiting criterions: {{ limitingCriterions.record }}
-          div Sleeve limiting criterions: {{ limitingCriterions.sleeve }}
-      .row.mt-4
-        .col-md-6.col-sm-12
           h4
             | Record 
+
             span.badge.badge-primary {{ result.record }}
-            span.badge.why-link(ng-if="result.record"): a(href="#") Why?
+            span.badge.why-link(ng-show="result.record && !showExplanations.record && !isMint(limitingCriterions.record)"): a(href="#" ng-click="toggleExplanations('record')") Why?
+          .row(ng-if="showExplanations.record && !isMint(limitingCriterions.record)"): .col-sm-12
+            div.alert.alert-primary.mb-0.mt-2
+              div: b The record shouldn't be higher than {{ result.record }} because...
+              div: ul.mb-0
+                li(ng-repeat="rule in limitingCriterions.record") {{ rule.gradeExplanation }}
           hr
-          rg-questions(criterions="outliers_r_criterions" answers="answers")
+          rg-questions(criterions="outliers_r_criterions" limiting-criterions="limitingCriterions" answers="answers")
 
           h5.text-muted.mb-3 Visual
-          rg-questions(criterions="rv_criterions" answers="answers")
+          rg-questions(criterions="rv_criterions" limiting-criterions="limitingCriterions" answers="answers")
 
           hr
 
           h5.text-muted.mt-3.mb-3 Playback
-          rg-questions(criterions="rp_criterions" answers="answers")
+          rg-questions(criterions="rp_criterions" limiting-criterions="limitingCriterions" answers="answers")
        
         .mt-2.hidden-sm-up  
         .col-md-6.col-sm-12
           h4
             | Sleeve 
             span.badge.badge-primary {{ result.sleeve }}
-            span.badge.why-link(ng-if="result.sleeve"): a(href="#") Why?
+            span.badge.why-link(ng-show="result.sleeve && !showExplanations.sleeve && !isMint(limitingCriterions.sleeve)"): a(href="#" ng-click="toggleExplanations('sleeve')") Why?
+
+          .row(ng-if="showExplanations.sleeve && !isMint(limitingCriterions.sleeve)"): .col-sm-12
+            div.alert.alert-primary.mb-0.mt-2
+              div: b The sleeve shouldn't be higher than {{ result.sleeve }} because...
+              div: ul.mb-0
+                li(ng-repeat="rule in limitingCriterions.sleeve") {{ rule.gradeExplanation }}
+
           hr
-          rg-questions(criterions="s_criterions" answers="answers")
+          rg-questions(criterions="s_criterions" limiting-criterions="limitingCriterions" answers="answers")
 
       p.text-muted.mt-4
         b How is the grade computed?
@@ -80,7 +89,7 @@ html(lang='en')
       //- pre {{ answers | json }}
     script(src='https://code.jquery.com/jquery-3.1.1.slim.min.js', integrity='sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n', crossorigin='anonymous')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js', integrity='sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb', crossorigin='anonymous')
-    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js', integrity='sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn', crossorigin='anonymous')
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js", integrity="sha384-feJI7QwhOS+hwpX2zkaeJQjeiwlhOP+SdQDqhgvvo1DsjtiSQByFdThsxO669S2D", crossorigin="anonymous")
     script(src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js')
     script(type='text/javascript', src='dist.js')

@@ -13,6 +13,16 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http) {
 		record: null,
 		sleeve: null
 	};
+	$scope.showExplanations = {
+		record: false,
+		sleeve: false
+	};
+	$scope.isMint = function(rules) {
+		console.log('••• rules', rules);
+		return _.reduce(rules, function(prev, rule, prop) {
+			return rule.maxGrade == "M" && prev;
+		}, true);
+	};
 
 	var orderedGrades = ['P', 'G', 'VG', 'VG+', 'NM', 'M'];
 
@@ -68,7 +78,7 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http) {
 				return prev;
 		}, (orderedGrades.length - 1));
 
-		limitingCriterions = [];
+		limitingCriterions = {};
 
 		answeredCriterions = _.filter(criterions, function(criterion) {
 			return answers[criterion.prop] !== undefined;
@@ -102,5 +112,9 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http) {
 			console.log('••• $scope.limitingCriterions', $scope.limitingCriterions)
 		});
 	});
+
+	$scope.toggleExplanations = function(ns) {
+		$scope.showExplanations[ns] = !$scope.showExplanations[ns];
+	};
 
 }]);
