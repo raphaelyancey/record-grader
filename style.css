@@ -27,3 +27,6 @@ body {
 .why-link {
   font-size: 15px;
 }
+.shim-link {
+  cursor: pointer;
+}

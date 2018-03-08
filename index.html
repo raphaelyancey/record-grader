@@ -23,7 +23,7 @@
       </div>
       <div class="row mt-4">
         <div class="col-md-6 col-sm-12">
-          <h4>Record <span class="badge badge-primary">{{ result.record }}</span><span class="badge why-link" ng-show="result.record &amp;&amp; !showExplanations.record &amp;&amp; !isMint(limitingCriterions.record)"><a href="#" ng-click="toggleExplanations('record')">Why?</a></span></h4>
+          <h4>Record <span class="badge badge-primary">{{ result.record }}</span><span class="badge why-link" ng-show="result.record &amp;&amp; !showExplanations.record &amp;&amp; !isMint(limitingCriterions.record)"><a class="text-primary shim-link" ng-click="toggleExplanations('record')">Why?</a></span></h4>
           <div class="row" ng-if="showExplanations.record &amp;&amp; !isMint(limitingCriterions.record)">
             <div class="col-sm-12">
               <div class="alert alert-primary mb-0 mt-2">
@@ -46,7 +46,7 @@
         </div>
         <div class="mt-2 hidden-sm-up"> </div>
         <div class="col-md-6 col-sm-12">
-          <h4>Sleeve <span class="badge badge-primary">{{ result.sleeve }}</span><span class="badge why-link" ng-show="result.sleeve &amp;&amp; !showExplanations.sleeve &amp;&amp; !isMint(limitingCriterions.sleeve)"><a href="#" ng-click="toggleExplanations('sleeve')">Why?</a></span></h4>
+          <h4>Sleeve <span class="badge badge-primary">{{ result.sleeve }}</span><span class="badge why-link" ng-show="result.sleeve &amp;&amp; !showExplanations.sleeve &amp;&amp; !isMint(limitingCriterions.sleeve)"><a class="text-primary shim-link" ng-click="toggleExplanations('sleeve')">Why?</a></span></h4>
           <div class="row" ng-if="showExplanations.sleeve &amp;&amp; !isMint(limitingCriterions.sleeve)">
             <div class="col-sm-12">
               <div class="alert alert-primary mb-0 mt-2">
