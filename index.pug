@@ -59,28 +59,18 @@ html(lang='en')
         |  The initial grade is M, and each answer will lower (or at best keep) it. For example, if the record is perfect but you hear a background noise when playing, according to the guidelines it can't be higher than VG.
       p.text-muted.mt-4
         | You might get weird grades while messing with the answers. Make sure the combination of answers is plausible in real life to get an accurate grade, e.g. a badly warped record is most of the time (if not all) also audibly warped.
-      //- div(ng-if='ui.comments')
-      //-   #disqus_thread
-      //-   script.
-      //-     /**
-      //-     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-      //-     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-      //-     /*
-      //-     var disqus_config = function () {
-      //-     this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-      //-     this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-      //-     };
-      //-     */
-      //-     (function() { // DON'T EDIT BELOW THIS LINE
-      //-     var d = document, s = d.createElement('script');
-      //-     s.src = 'https://raphaelyancey-experiments.disqus.com/embed.js';
-      //-     s.setAttribute('data-timestamp', +new Date());
-      //-     (d.head || d.body).appendChild(s);
-      //-     })();
-      //-   noscript
-      //-     | Please enable JavaScript to view the 
-      //-     a(href='https://disqus.com/?ref_noscript') comments powered by Disqus.
-      //-   script#dsq-count-scr(src='//raphaelyancey-experiments.disqus.com/count.js', async='')
+
+      p.text-muted.mt-4
+        form.form-inline(action='https://raphaelyancey.us12.list-manage.com/subscribe/post?u=21c652efeaa38b801ed6a52ff&id=1b3f91cc38', method='post', name='mc-embedded-subscribe-form', target='_blank', novalidate='')
+          .input-group.col-sm-12.col-md-4.pl-0
+            input.form-control(type='email', value='', name='EMAIL' placeholder="Enter your email")
+            .input-group-append: input.btn.btn-primary(type='submit', value='Get updates', name='subscribe')
+          small.text-muted No spam, one email per month max.
+          div(style='position: absolute; left: -5000px;', aria-hidden='true')
+            input.form-control(type='text', name='b_21c652efeaa38b801ed6a52ff_1b3f91cc38', tabindex='-1', value='')
+
+      p: a.text-primary(href="https://twitter.com/raphaelyancey") Leave a feedback on Twitter
+
       .mt-4.mb-4.text-muted
         small
           | Made by 
