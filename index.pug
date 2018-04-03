@@ -23,7 +23,7 @@ html(lang='en')
             span.badge.badge-primary {{ result.record }}
             span.badge.why-link(ng-show="result.record && !showExplanations.record && !isMint(limitingCriterions.record)"): a.text-primary.shim-link(ng-click="toggleExplanations('record')") Why?
           .row(ng-if="showExplanations.record && !isMint(limitingCriterions.record)"): .col-sm-12
-            div.alert.alert-primary.mb-0.mt-2
+            div.alert.alert-secondary.mb-0.mt-2
               div: b The record shouldn't be higher than {{ result.record }} because...
               div: ul.mb-0
                 li(ng-repeat="rule in limitingCriterions.record") {{ rule.gradeExplanation }}
@@ -46,7 +46,7 @@ html(lang='en')
             span.badge.why-link(ng-show="result.sleeve && !showExplanations.sleeve && !isMint(limitingCriterions.sleeve)"): a.text-primary.shim-link(ng-click="toggleExplanations('sleeve')") Why?
 
           .row(ng-if="showExplanations.sleeve && !isMint(limitingCriterions.sleeve)"): .col-sm-12
-            div.alert.alert-primary.mb-0.mt-2
+            div.alert.alert-secondary.mb-0.mt-2
               div: b The sleeve shouldn't be higher than {{ result.sleeve }} because...
               div: ul.mb-0
                 li(ng-repeat="rule in limitingCriterions.sleeve") {{ rule.gradeExplanation }}
