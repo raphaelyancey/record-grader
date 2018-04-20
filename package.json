@@ -4,6 +4,7 @@
   "description": "",
   "main": "dist.js",
   "dependencies": {
+    "bootstrap": "^4.1.0",
     "random-record-sleeve": "0.0.7"
   },
   "devDependencies": {
