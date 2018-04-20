@@ -7,6 +7,7 @@ html(lang='en')
     link(href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css", rel="stylesheet", integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm", crossorigin="anonymous")
     link(rel='stylesheet', href='style.css', type='text/css')
     link(href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600', rel='stylesheet', type='text/css')
+    link(rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous")
   body(ng-app='recordGrader', ng-controller='MainController')
     .container
       .row: .col-sm-12.mt-4
@@ -69,7 +70,15 @@ html(lang='en')
           div(style='position: absolute; left: -5000px;', aria-hidden='true')
             input.form-control(type='text', name='b_21c652efeaa38b801ed6a52ff_1b3f91cc38', tabindex='-1', value='')
 
-      p: a.text-primary(href="https://twitter.com/raphaelyancey") Leave a feedback on Twitter
+      p
+        i.fab.fa-twitter.text-primary
+        | &nbsp;
+        a.text-primary(href="https://twitter.com/raphaelyancey" target="_blank") Leave a feedback
+
+      p
+        i.fab.fa-github
+        | &nbsp;
+        a(href="https://github.com/raphaelyancey/record-grader" target="_blank") Contribute
 
       .mt-4.mb-4.text-muted
         small
@@ -77,10 +86,25 @@ html(lang='en')
           a(href='http://raphaelyancey.fr') Raphael Yancey
           |  — 2017
       //- pre {{ answers | json }}
-    script(src='https://code.jquery.com/jquery-3.1.1.slim.min.js', integrity='sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n', crossorigin='anonymous')
-    script(src='https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js', integrity='sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb', crossorigin='anonymous')
     script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js", integrity="sha384-feJI7QwhOS+hwpX2zkaeJQjeiwlhOP+SdQDqhgvvo1DsjtiSQByFdThsxO669S2D", crossorigin="anonymous")
     script(src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js')
     script(type='text/javascript', src='dist.js')
-    script#dsq-count-scr(src='//raphaelyancey-experiments.disqus.com/count.js', async='')
+    // Matomo
+    script(type='text/javascript').
+      var _paq = _paq || [];
+      /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+      (function() {
+      var u="//s.raphaelyancey.fr/";
+      _paq.push(['setTrackerUrl', u+'piwik.php']);
+      _paq.push(['setSiteId', '1']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+      })();
+    noscript
+      p
+        img(src='//s.raphaelyancey.fr/piwik.php?idsite=1&rec=1', style='border:0;', alt='')
+    // End Matomo Code
+
