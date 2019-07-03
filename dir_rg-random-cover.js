@@ -17,7 +17,7 @@ app.directive('rgRandomCover', ['$http', function($http) {
       var FALLBACK_URI = 'dj_krush_milight.jpg';
       var FALLBACK_TITLE = 'MiLight (1996)';
 
-      $scope.discogsListId = $scope.discogsListId || 2056; // Defaults to "Most Popular Albums" list
+      $scope.discogsListId = $scope.discogsListId || 12264; // Defaults to "Most Popular Albums" list
 
       function updateImage(src, title, alt) {
         if(!src) throw new Error('Empty source.');
