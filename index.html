@@ -1,112 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Vinyl Record & Sleeve Grader</title>
-    <meta name="description" content="Accurately grade a vinyl record and a sleeve according to the Goldmine guidelines.">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
-  </head>
-  <body ng-app="recordGrader" ng-controller="MainController">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12 mt-4">
-          <div class="row d-flex align-items-center">
-            <div class="col-12 col-sm-auto sleeve-logo text-center text-md-left"><img rg-random-cover discogs-credentials="{ key: 'CXDjOnwBOBrUIPVjpbMh', secret: 'NyFFxQoZSxbmiqWQYwZTKDGQQMJwuUtX' }" fallback="{ url: 'dj_krush_milight.jpg', title: 'MiLight (1996)' }"></div>
-            <div class="col-auto text-center text-md-left ml-md-4 mt-sm-0 mt-4">
-              <h2><strong>Vinyl record &amp; sleeve grader</strong></h2>
-              <p>A tool for helping you to grade vinyl records according to the <a href='http://www.goldminemag.com/collector-resources/record-grading-101'>Goldmine guidelines</a>.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row mt-4">
-        <div class="col-md-6 col-sm-12">
-          <h4>Record <span class="badge badge-primary">{{ result.record }}</span><span class="badge why-link" ng-show="result.record &amp;&amp; !showExplanations.record &amp;&amp; !isMint(limitingCriterions.record)"><a class="text-primary shim-link" ng-click="toggleExplanations('record')">Why?</a></span></h4>
-          <div class="row" ng-if="showExplanations.record &amp;&amp; !isMint(limitingCriterions.record)">
-            <div class="col-sm-12">
-              <div class="alert alert-secondary mb-0 mt-2">
-                <div><b>The record shouldn't be higher than {{ result.record }} because...</b></div>
-                <div>
-                  <ul class="mb-0">
-                    <li ng-repeat="rule in limitingCriterions.record">{{ rule.gradeExplanation }}</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-          <hr>
-          <rg-questions criterions="outliers_r_criterions" limiting-criterions="limitingCriterions" answers="answers"></rg-questions>
-          <h5 class="text-muted mb-3">Visual</h5>
-          <rg-questions criterions="rv_criterions" limiting-criterions="limitingCriterions" answers="answers"></rg-questions>
-          <hr>
-          <h5 class="text-muted mt-3 mb-3">Playback</h5>
-          <rg-questions criterions="rp_criterions" limiting-criterions="limitingCriterions" answers="answers"></rg-questions>
-        </div>
-        <div class="mt-2 hidden-sm-up"> </div>
-        <div class="col-md-6 col-sm-12">
-          <h4>Sleeve <span class="badge badge-primary">{{ result.sleeve }}</span><span class="badge why-link" ng-show="result.sleeve &amp;&amp; !showExplanations.sleeve &amp;&amp; !isMint(limitingCriterions.sleeve)"><a class="text-primary shim-link" ng-click="toggleExplanations('sleeve')">Why?</a></span></h4>
-          <div class="row" ng-if="showExplanations.sleeve &amp;&amp; !isMint(limitingCriterions.sleeve)">
-            <div class="col-sm-12">
-              <div class="alert alert-secondary mb-0 mt-2">
-                <div><b>The sleeve shouldn't be higher than {{ result.sleeve }} because...</b></div>
-                <div>
-                  <ul class="mb-0">
-                    <li ng-repeat="rule in limitingCriterions.sleeve">{{ rule.gradeExplanation }}</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-          <hr>
-          <rg-questions criterions="s_criterions" limiting-criterions="limitingCriterions" answers="answers"></rg-questions>
-        </div>
-      </div>
-      <p class="text-muted mt-4"><b>How is the grade computed?</b> The initial grade is M, and each answer will lower (or at best keep) it. For example, if the record is perfect but you hear a background noise when playing, according to the guidelines it can't be higher than VG.</p>
-      <p class="text-muted mt-4">You might get weird grades while messing with the answers. Make sure the combination of answers is plausible in real life to get an accurate grade, e.g. a badly warped record is most of the time (if not all) also audibly warped.</p>
-      <p class="text-muted mt-4">
-        <form class="form-inline" action="https://raphaelyancey.us12.list-manage.com/subscribe/post?u=21c652efeaa38b801ed6a52ff&amp;id=1b3f91cc38" method="post" name="mc-embedded-subscribe-form" target="_blank" novalidate="">
-          <div class="input-group col-sm-12 col-md-4 pl-0">
-            <input class="form-control" type="email" value="" name="EMAIL" placeholder="Enter your email">
-            <div class="input-group-append">
-              <input class="btn btn-primary" type="submit" value="Get updates" name="subscribe">
-            </div>
-          </div><small class="text-muted">No spam. Only for major updates.</small>
-          <div style="position: absolute; left: -5000px;" aria-hidden="true">
-            <input class="form-control" type="text" name="b_21c652efeaa38b801ed6a52ff_1b3f91cc38" tabindex="-1" value="">
-          </div>
-        </form>
-      </p>
-      <p><i class="fab fa-twitter text-primary"></i>&nbsp;<a class="text-primary" href="https://twitter.com/raphaelyancey" target="_blank">Leave feedback</a></p>
-      <p><i class="fab fa-github"></i>&nbsp;<a href="https://github.com/raphaelyancey/record-grader" target="_blank">Contribute</a></p>
-      <p><i class="fab fa-hacker-news" style="color: #ff6600;"></i>&nbsp;<a href="https://news.ycombinator.com/item?id=16891184" target="_blank">Discuss</a></p>
-      <div class="mt-4 mb-4 text-muted"><small>Made by <a href="http://raphaelyancey.fr">Raphael Yancey</a> — 2017</small></div>
-    </div>
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js" integrity="sha384-feJI7QwhOS+hwpX2zkaeJQjeiwlhOP+SdQDqhgvvo1DsjtiSQByFdThsxO669S2D" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
-    <script type="text/javascript" src="dist.js"></script>
-    <!-- Matomo-->
-    <script type="text/javascript">
-      var _paq = _paq || [];
-      /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-      _paq.push(['trackPageView']);
-      _paq.push(['enableLinkTracking']);
-      (function() {
-      var u="//s.raphaelyancey.fr/";
-      _paq.push(['setTrackerUrl', u+'js/']);
-      _paq.push(['setSiteId', '1']);
-      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-      g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'js/'; s.parentNode.insertBefore(g,s);
-      })();
-    </script>
-    <noscript>
-      <p><img src="//s.raphaelyancey.fr/js/?idsite=1&amp;rec=1" style="border:0;" alt=""></p>
-    </noscript>
-    <!-- End Matomo Code-->
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Record Grader</title>
+</head>
+<body>
+    <div id="root"></div>
+    <script src="./index.js"></script>
+</body>
 </html>

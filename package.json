@@ -1,31 +1,24 @@
 {
   "name": "record-grader",
-  "version": "0.0.1",
-  "description": "",
-  "main": "dist.js",
-  "dependencies": {
-    "bootstrap": "^4.1.0",
-    "random-record-sleeve": "0.0.7"
-  },
-  "devDependencies": {
-    "browserify": "^14.4.0",
-    "http-server": "^0.11.1",
-    "less": "^2.7.2",
-    "pug-cli": "^1.0.0-alpha6",
-    "watchify": "^3.10.0"
-  },
+  "version": "1.0.0",
+  "description": "Grade your records by answering limpid questions.",
+  "main": "index.js",
   "scripts": {
-    "watch": "./node_modules/.bin/watchify main.js -o dist.js -v",
-    "start": "./node_modules/.bin/http-server ."
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/raphaelyancey/record-grader.git"
   },
-  "author": "Raphael Yancey",
+  "keywords": [],
+  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/raphaelyancey/record-grader/issues"
   },
-  "homepage": "https://github.com/raphaelyancey/record-grader#readme"
+  "homepage": "https://github.com/raphaelyancey/record-grader#readme",
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
 }

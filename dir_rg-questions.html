@@ -1,8 +1,0 @@
-
-<section class="criterion" ng-repeat="criterion in criterions"><strong>{{ criterion.label }}</strong>
-  <div>
-    <label class="criterion_choice text-muted" ng-repeat="rule in criterion.rules">
-      <input type="radio" ng-value="rule.answerValue" ng-model="answers[getGradedEntity(criterion)][criterion.prop]"/>&nbsp;{{ rule.answerLabel }}
-    </label>
-  </div>
-</section>
